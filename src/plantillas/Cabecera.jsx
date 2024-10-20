@@ -5,13 +5,13 @@ const Cabecera = () => {
         <>
             <div className="cabecera-contenedor">
                 <div>
-                    <p>Neiva, Huila | <a href="mailto:">fruverdelcampo@gmail.com</a></p>
+                    <p>Neiva, Huila | <a href="mailto:" target="_blank">fruverdelcampo@gmail.com</a></p>
                 </div>
 
                 <div className="cabecera-iconos">
-                    <FaInstagram />
-                    <FaFacebook />
-                    <FaWhatsapp />
+                    <a href="https://www.instagram.com/" target="_blank"> <FaInstagram /></a>
+                    <a href="https://facebook.com/" target="_blank"><FaFacebook /></a>
+                    <a href="https://www.whatsapp.com/" target="_blank"><FaWhatsapp /></a>
                 </div>
             </div>
         </>
