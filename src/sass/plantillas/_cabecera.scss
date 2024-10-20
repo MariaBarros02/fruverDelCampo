@@ -1,0 +1,20 @@
+.cabecera-contenedor {
+    background-color: rgb(66, 66, 66);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    color: #FFF;
+
+    a {
+        color: #FFF;
+    }
+
+}
+
+.cabecera-iconos {
+    * {
+        margin: 0 0.2rem;
+        font-size: 1.3rem;
+    }
+}

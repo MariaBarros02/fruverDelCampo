@@ -1,7 +1,7 @@
-
+import Cabecera from "../plantillas/Cabecera"
 const Index = () => {
   return (
-    <div>Index</div>
+    <Cabecera/>
   )
 }
 
