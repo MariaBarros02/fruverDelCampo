@@ -1,7 +1,12 @@
 import Cabecera from "../plantillas/Cabecera"
+import Navegacion from "../plantillas/Navegacion"
 const Index = () => {
   return (
-    <Cabecera/>
+    <>
+      <Cabecera />
+      <Navegacion />
+    </>
+
   )
 }
 
