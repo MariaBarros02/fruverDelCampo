@@ -1,0 +1,22 @@
+.footer-contenedor{
+    background-color: #81b800;
+    padding: 1rem;
+    text-align: center;
+    color: #fff;
+
+    *{
+        margin: 0.5rem 0;
+    }
+
+    h3{
+        font-weight: 400;
+    }
+
+    div{
+        font-size: 2rem;
+        a{
+            color: #fff;
+            margin: 0 2rem;
+        }
+    }
+}
