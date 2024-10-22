@@ -1,10 +1,10 @@
 import Cabecera from "../plantillas/Cabecera"
-import Navegacion from "../plantillas/Navegacion"
+import HeroPrincipal from "../componentes/HeroPrincipal"
 const Index = () => {
   return (
     <>
       <Cabecera />
-      <Navegacion />
+      <HeroPrincipal/>
     </>
 
   )

@@ -2,19 +2,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0rem;
+    padding: 0.8rem 0rem;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    transition:  background-color 0.5s ease;
+    transition: box-shadow 2s ease;
 
     @media (min-width: 600px) {
-        padding: 2rem ; 
+        padding: 1.8rem ; 
     }
+
     div{
         display: flex;
         align-items: center;
     }
+
     nav{
-        *{    
-            padding: 1rem ; 
-            color: #000;
+        *{   
+            padding: 1rem ;    
             font-size: 0.8rem;
 
             &:hover{
@@ -30,17 +36,41 @@
     }
 }
 .navegacion-logo{
-    font-size: 1rem;
     display: none;
-
     @media (min-width: 600px) {
         display: block;
     }
 }
+
 .navegacion-iconoCarrito{
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-left: 2rem;
     @media (min-width: 600px) {
         font-size: 1.5rem;
     }
 }
+//Estilos para ajustar la navegacion
+.navegacion_hero{
+    top: 15;
+    left: 0;
+    color: #ffffff;
+    nav{
+        *{
+            color: #ffffff;
+        }
+    }
+}
+
+.navegacion_movil{
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    color: #000;
+    nav{
+        *{
+            color: #000;
+        }
+    }
+}
+

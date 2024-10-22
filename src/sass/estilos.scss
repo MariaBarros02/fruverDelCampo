@@ -2,8 +2,13 @@
 @use './base/configuracion';
 @use './base/variables';
 
+//PLANTILLAS
+@use './plantillas/cabecera';
+@use './plantillas/navegacion';
+
 
 //COMPONENTES
-@use './plantillas/cabecera';
-@use './plantillas/navegacion'
+@use './componentes/heroPrincipal'
+
+
 //PAGINAS
