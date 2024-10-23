@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const CardCategoria = ({ nombre, imagen }) => {
+const CardCategoria = ({ nombre,index }) => {
   return (
     <>
       
-      <div className={`cardCategoria-contenido `}>
-        <img src={imagen} alt={`imagen-${nombre}`} />
+      <div className={`cardCategoria-contenido `} >
+        <img src={`../imagenes/categoria_${index+1}.webp`} alt={`imagen-${nombre}`} />
         <Link to="" className='cardCategoria-link'></Link>
         <div >
           <p>{nombre}</p>

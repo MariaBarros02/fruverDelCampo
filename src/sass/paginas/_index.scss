@@ -1,5 +1,6 @@
 @use './../base/variables' as *;
 .index-categoria_contenedor{
+
     padding: 3rem;
     text-align: center;
     width: 100%;
@@ -20,6 +21,65 @@
 
         @media(min-width: $mediano){
             grid-template-columns: repeat(5, 1fr);
+        }
+    }
+}
+
+.index-caracteristicas{
+    padding: 3rem;
+    background-color: $colorPrincipal;
+    .index-caracteristicas_contenedor{
+        
+        @media (min-width: $mediano){
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 3rem;
+        }
+
+        @media (min-width: $grande){
+            width: 80%;
+            margin: auto;
+        }
+
+
+        .index-caracteristicas_contenido{
+            column-gap: 0;
+            margin: auto;
+            @media (min-width: $grande){
+                width: 80%;
+                margin: auto;
+            }
+    
+        }
+    
+        img{
+            border-radius: 50%;
+            width:80%;
+            margin-top: 1rem;
+        }
+    
+        div{
+            text-align: center;
+            padding: 0.5rem 0;
+            color: $claro;
+    
+            h3{
+                text-transform: uppercase;
+                font-size: 1.5rem;
+                margin: 0.5rem 0;
+                @media(min-width: $mediano){
+                    font-size: 1.2rem;
+                }
+                @media(min-width: $grande){
+                    font-size: 1.2rem;
+                }
+            }
+    
+            p{
+                @media(min-width: $mediano){
+                    font-size: 0.9rem;
+                }
+            }
         }
     }
 }

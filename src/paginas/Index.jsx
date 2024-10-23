@@ -3,28 +3,21 @@ import HeroPrincipal from "../componentes/HeroPrincipal"
 import CardCategoria from "../componentes/CardCategoria"
 import Footer from "../plantillas/Footer"
 
-const categorias = [
-  {
-    nombre: 'Frutas',
-    imagen: '/imagenes/frutas.jpg',
-  },
-  {
-    nombre: 'Verduras',
-    imagen: '/imagenes/verduras.jpg',
-  },
-  {
-    nombre: 'Pulpas de fruta',
-    imagen: '/imagenes/pulpas.jpg',
-  },
-  {
-    nombre: 'Carnes',
-    imagen: '/imagenes/carnes.jpg',
-  },
-  {
-    nombre: 'Granos',
-    imagen: '/imagenes/granos.jpg',
-  }
+const categorias = ['Frutas', 'Verduras', 'Pulpas de fruta', 'Carnes', 'Granos'];
 
+const caracteristicas = [
+  {
+    titulo: 'Envíos gratis a tu domilicio',
+    descripcion: 'Llevamos tu compra hasta la puerta de tu casa de lunes a domingo sin ningún costo',
+  },
+  {
+    titulo: 'Productos frescos y de calidad',
+    descripcion: 'Disponemos de productos de alta calidad, seleccionados directamente del campo a tus manos',
+  },
+  {
+    titulo: 'Paga con cualquier metodo de pago',
+    descripcion: 'Contraentrega, transferencia, billeteras virtuales y mucho más',
+  },
 ]
 
 const Index = () => {
@@ -39,15 +32,35 @@ const Index = () => {
         <div className="index-categoria_contenido">
           {
             categorias.map((categoria, index) => (
-
               <CardCategoria
-                nombre={categoria.nombre}
-                imagen={categoria.imagen}
+                nombre={categoria}
+                index={index}
+                key={index}
               />
-
             ))
           }
         </div>
+      </div>
+
+      <div className="index-caracteristicas">
+        <div className="index-caracteristicas_contenedor">
+          {
+            caracteristicas.map((caracteristica, index) => (
+              <div className="index-caracteristicas_contenido" key={index}>
+                <img src={`/imagenes/caracteristica_${index + 1}.webp`} />
+                <div>
+                  <h3>{caracteristica.titulo}</h3>
+                  <p>{caracteristica.descripcion}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+
+
+
+
+
 
       </div>
 
