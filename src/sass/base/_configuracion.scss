@@ -1,4 +1,6 @@
 // BASES UNIVERSALES
+@use './variables' as *;
+
 *{
     margin:0;
     padding: 0;
@@ -7,6 +9,7 @@
 
 body {
     overflow-x: hidden;
+    font-family: $fuentePrincipal;
 }
 
 li{
@@ -20,6 +23,7 @@ a{
 button{
     background-color: none;
 }
+
 img{
     width: 100%;
 }

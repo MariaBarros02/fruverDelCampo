@@ -1,15 +1,15 @@
-//BASE Y VARIABLES
-@use './base/configuracion';
-@use './base/variables';
-
 //PLANTILLAS
+
 @use './plantillas/cabecera';
 @use './plantillas/navegacion';
 @use './plantillas/footer';
 
 //COMPONENTES
-@use './componentes/heroPrincipal';
+@use './componentes/heroPrincipal';;
 @use './componentes/cardCategoria';
+
+//BASE Y VARIABLES
+@use './base/configuracion';
 
 //PAGINAS
 @use './paginas/index';
