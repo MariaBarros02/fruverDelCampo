@@ -1,14 +1,13 @@
-//BASE Y VARIABLES
-@use './base/configuracion';
-@use './base/variables';
-
 //PLANTILLAS
+
 @use './plantillas/cabecera';
 @use './plantillas/navegacion';
 @use './plantillas/footer';
 
 //COMPONENTES
-@use './componentes/heroPrincipal'
+@use './componentes/heroPrincipal';
 
+//BASE Y VARIABLES
+@use './base/configuracion';
 
 //PAGINAS

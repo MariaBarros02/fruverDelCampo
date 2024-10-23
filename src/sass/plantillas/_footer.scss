@@ -1,8 +1,11 @@
+@use './../base/variables' as *;
+
 .footer-contenedor{
-    background-color: #81b800;
+    background-color: $claro;
     padding: 1rem;
     text-align: center;
-    color: #fff;
+    color: $oscuro;
+    box-shadow: 0 -10px 15px -5px rgba(0, 0, 0, 0.5);
 
     *{
         margin: 0.5rem 0;
@@ -15,7 +18,7 @@
     div{
         font-size: 2rem;
         a{
-            color: #fff;
+            color: $oscuro;
             margin: 0 2rem;
         }
     }
