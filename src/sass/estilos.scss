@@ -8,7 +8,8 @@
 @use './plantillas/footer';
 
 //COMPONENTES
-@use './componentes/heroPrincipal'
-
+@use './componentes/heroPrincipal';
+@use './componentes/cardCategoria';
 
 //PAGINAS
+@use './paginas/index';
