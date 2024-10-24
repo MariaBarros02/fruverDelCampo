@@ -1,7 +1,7 @@
 @use './../base/variables' as *;
 .index-categoria_contenedor{
 
-    padding: 3rem;
+    padding: 2rem;
     text-align: center;
     width: 100%;
 
@@ -26,7 +26,7 @@
 }
 
 .index-caracteristicas{
-    padding: 3rem;
+    padding: 2rem;
     background-color: $colorPrincipal;
     .index-caracteristicas_contenedor{
         
@@ -82,4 +82,67 @@
             }
         }
     }
+}
+.index-productosDestacados{
+    width: 100%;
+    padding: 3rem 0;
+    text-align: center;
+    h2{
+        color: $colorSecundario;
+        text-transform: uppercase;
+        font-size: 2rem;
+
+    }
+
+    .index-productosDes_contenedor{
+        padding-top: 1rem;
+        width: 70%;
+        margin: auto;
+
+        @media (min-width: $mediano) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+        }
+        .index-producto_contenedor{
+
+            img{
+                clip-path: polygon(
+                50% 5%,    /* Punto superior */
+                63% 30%,   /* Derecha superior */
+                90% 35%,   /* Derecha media */
+                70% 55%,   /* Derecha inferior */
+                75% 80%,   /* Punta inferior derecha */
+                50% 65%,   /* Centro inferior */
+                25% 80%,   /* Punta inferior izquierda */
+                30% 55%,   /* Izquierda inferior */
+                10% 35%,   /* Izquierda media */
+                37% 30%    /* Izquierda superior */
+                );
+                object-fit: cover; /* Asegura que la imagen se ajuste dentro de la forma */
+                height: 18rem;
+                width: auto;
+                transition:  transform 0.5s ease-in-out;
+                &:hover{
+                    transform: scale(1.2);
+                }
+            }
+           
+        }
+    }
+}
+.producto-btnCarrito{
+    width: 80%;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    text-align: center;
+    color: $claro;
+    border-radius: 3rem;
+    background-color: $colorSecundario;
+    @media (min-width: $mediano) {
+        width: 50%;
+    }
+}
+.texto{
+    margin-top: -3rem;
 }

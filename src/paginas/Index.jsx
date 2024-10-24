@@ -57,11 +57,35 @@ const Index = () => {
           }
         </div>
 
-
-
-
-
-
+      </div>
+      <div className="index-productosDestacados"> 
+        <h2>Productos destacados</h2>
+        <div className="index-productosDes_contenedor">
+          <div className="index-producto_contenedor">
+              <img src="../imagenes/ajo.jpg" alt="estrella" />
+              <div className="texto">
+                <p>Ajo x 90g</p>
+                <p>$1.610</p>
+                <p className="producto-btnCarrito">Añadir al carrito</p>
+              </div>
+          </div>
+          <div className="index-producto_contenedor">
+              <img src="../imagenes/champiñones.jpg" alt="estrella" />
+              <div className="texto">
+                <p>Champiñones Enteros x 250g</p>
+                <p>$6.800</p>
+                <p className="producto-btnCarrito">Añadir al carrito</p>
+              </div>
+          </div>
+          <div className="index-producto_contenedor">
+              <img src="../imagenes/limon.jpg" alt="estrella" />
+              <div className="texto">
+                <p>Limón x 190g</p>
+                <p>$449</p>
+                <p className="producto-btnCarrito">Añadir al carrito</p>
+              </div>
+          </div>
+        </div>
       </div>
 
       <Footer />
