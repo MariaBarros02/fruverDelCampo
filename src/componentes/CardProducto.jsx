@@ -14,7 +14,6 @@ const CardProducto = ({producto, id, productosDes}) => {
             <img src={`../imagenes/productos/${producto.Producto}.webp`} alt={`imagen_${producto.Producto}`} />
             <div>
                 <p>{producto.Producto} x {producto.Tamaño}{producto.Unidad}</p>
-                {console.log(producto)}
                 <p>{formatearDinero(producto.ÍtemsTiendas[0].Precio, 'COP')}</p>
             </div>
             <a href="#" className="Producto-btnAnadirCarrito">Añadir al carrito</a>

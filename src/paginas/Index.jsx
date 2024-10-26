@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { BsArrowRight } from "react-icons/bs";
 import Cabecera from "../plantillas/Cabecera"
 import HeroPrincipal from "../componentes/HeroPrincipal"
 import CardCategoria from "../componentes/CardCategoria"
@@ -33,8 +34,6 @@ const Index = () => {
       const respuesta = await fetch(url);
       const resultado = await respuesta.json();
       setProductosDes(resultado.Datos.Ítems.slice(0, 3));
-      console.log(resultado.Datos.Ítems.slice(0, 3));
-
     };
     obtenerProductosDes();
 
@@ -45,19 +44,22 @@ const Index = () => {
       <HeroPrincipal />
 
       <div className="index-categoria_contenedor">
-        <h3>¡Aqui encontrarás todo lo que necesitas!</h3>
-        <div className="index-categoria_contenido">
-          {
-            categorias.map((categoria, index) => (
-              <CardCategoria
-                nombre={categoria}
-                index={index}
-                key={index}
-              />
-            ))
-          }
+        <div className="">
+          <h3>¡Aqui encontrarás todo lo que necesitas!</h3>
+          <div className="index-categoria_contenido">
+            {
+              categorias.map((categoria, index) => (
+                <CardCategoria
+                  nombre={categoria}
+                  index={index}
+                  key={index}
+                />
+              ))
+            }
+          </div>
         </div>
       </div>
+
 
       <div className="index-caracteristicas">
         <div className="index-caracteristicas_contenedor">
@@ -73,27 +75,32 @@ const Index = () => {
             ))
           }
         </div>
-
       </div>
+      
+
       <div className="index-productosDestacados">
-        <h2>Productos destacados</h2>
-        <div className="index-productosDes_contenedor">
-          {
-            productosDes.map((producto, index) => (
-              <CardProducto
-                key={index}
-                producto={producto}
-                id={index}
-              />
-            ))
-          }
+        <div className="index-productosDescatado_sombreado">
+          <h2>Productos destacados</h2>
+          <div className="index-productosDes_contenedor">
+            {
+              productosDes.map((producto, index) => (
+                <CardProducto
+                  key={index}
+                  producto={producto}
+                  id={index}
+                />
+              ))
+            }
+          </div>
         </div>
       </div>
+      
+
       <div className="index-bannerContenedor">
         <div className="index-bannerContenedor_sombreado">
           <div>
-            <p>Te invitamos a explorar todos los productos de nuestro fruver: frutas frescas, verduras recién cosechadas, pulpas naturales y mucho más, listos para llegar a tu mesa</p>
-            <Link className="index-bannerBtn" to="/productos">Ver productos</Link>
+            <p>Te invitamos a explorar todos los productos de nuestro fruver:<span> frutas frescas, verduras recién cosechadas, pulpas naturales y mucho más, listos para llegar a tu mesa</span></p>
+            <Link className="index-bannerBtn" to="/productos">Ir a comprar <BsArrowRight className="icono"/> </Link>
           </div>
         </div>
       </div>
