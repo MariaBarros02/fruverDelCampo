@@ -4,7 +4,6 @@ import App from './App.jsx'
 import './sass/estilos.scss'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  
     <App />
-  </StrictMode>,
 )

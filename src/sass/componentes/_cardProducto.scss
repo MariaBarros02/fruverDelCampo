@@ -1,0 +1,35 @@
+@use './../base/variables' as *;
+.Producto_contenedor{
+    padding-bottom: 1rem;
+    border: 1px solid #acacac;
+    border-radius: 1rem;
+    margin: 2rem 0 ;
+    
+    img{
+        object-fit: cover; 
+        border-radius: 1rem 1rem 0 0;          
+        aspect-ratio: 1 / 1;
+    }
+    div{
+        margin: 1rem;
+    }
+    
+}
+.Producto-btnAnadirCarrito{
+    display: block;
+    margin: auto;
+    width: 80%;
+    padding: 0.7rem;
+    text-align: center;
+    color: $claro;
+    border-radius: 3rem;
+    background-color: $colorSecundario;
+
+    &:hover{
+        background-color: #ec3420;
+    }
+
+
+
+
+}

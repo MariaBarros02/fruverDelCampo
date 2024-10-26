@@ -5,9 +5,9 @@
 @use './plantillas/footer';
 
 //COMPONENTES
-@use './componentes/heroPrincipal';;
+@use './componentes/heroPrincipal';
 @use './componentes/cardCategoria';
-
+@use './componentes/cardProducto';
 //BASE Y VARIABLES
 @use './base/configuracion';
 

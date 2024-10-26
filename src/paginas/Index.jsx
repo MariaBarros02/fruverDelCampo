@@ -1,10 +1,12 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Cabecera from "../plantillas/Cabecera"
 import HeroPrincipal from "../componentes/HeroPrincipal"
 import CardCategoria from "../componentes/CardCategoria"
 import Footer from "../plantillas/Footer"
+import CardProducto from "../componentes/CardProducto";
 
 const categorias = ['Frutas', 'Verduras', 'Pulpas de fruta', 'Carnes', 'Granos'];
-
 const caracteristicas = [
   {
     titulo: 'Envíos gratis a tu domilicio',
@@ -18,10 +20,25 @@ const caracteristicas = [
     titulo: 'Paga con cualquier metodo de pago',
     descripcion: 'Contraentrega, transferencia, billeteras virtuales y mucho más',
   },
-]
+];
+
 
 const Index = () => {
 
+  const [productosDes, setProductosDes] = useState([]);
+
+  useEffect(() => {
+    const obtenerProductosDes = async () => {
+      const url = 'https://losprecios.co/tienda/detalles?ID=6&MunicipioID=1&ClaveAPI=nfJrn941ba90fn2x&Categor%C3%ADa=frutas%20y%20verduras&P%C3%A1gina=2'
+      const respuesta = await fetch(url);
+      const resultado = await respuesta.json();
+      setProductosDes(resultado.Datos.Ítems.slice(0, 3));
+      console.log(resultado.Datos.Ítems.slice(0, 3));
+
+    };
+    obtenerProductosDes();
+
+  })
   return (
     <>
       <Cabecera />
@@ -58,32 +75,25 @@ const Index = () => {
         </div>
 
       </div>
-      <div className="index-productosDestacados"> 
+      <div className="index-productosDestacados">
         <h2>Productos destacados</h2>
         <div className="index-productosDes_contenedor">
-          <div className="index-producto_contenedor">
-              <img src="../imagenes/ajo.jpg" alt="estrella" />
-              <div className="texto">
-                <p>Ajo x 90g</p>
-                <p>$1.610</p>
-                <p className="producto-btnCarrito">Añadir al carrito</p>
-              </div>
-          </div>
-          <div className="index-producto_contenedor">
-              <img src="../imagenes/champiñones.jpg" alt="estrella" />
-              <div className="texto">
-                <p>Champiñones Enteros x 250g</p>
-                <p>$6.800</p>
-                <p className="producto-btnCarrito">Añadir al carrito</p>
-              </div>
-          </div>
-          <div className="index-producto_contenedor">
-              <img src="../imagenes/limon.jpg" alt="estrella" />
-              <div className="texto">
-                <p>Limón x 190g</p>
-                <p>$449</p>
-                <p className="producto-btnCarrito">Añadir al carrito</p>
-              </div>
+          {
+            productosDes.map((producto, index) => (
+              <CardProducto
+                key={index}
+                producto={producto}
+                id={index}
+              />
+            ))
+          }
+        </div>
+      </div>
+      <div className="index-bannerContenedor">
+        <div className="index-bannerContenedor_sombreado">
+          <div>
+            <p>Te invitamos a explorar todos los productos de nuestro fruver: frutas frescas, verduras recién cosechadas, pulpas naturales y mucho más, listos para llegar a tu mesa</p>
+            <Link className="index-bannerBtn" to="/productos">Ver productos</Link>
           </div>
         </div>
       </div>

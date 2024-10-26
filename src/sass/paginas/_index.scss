@@ -1,148 +1,192 @@
 @use './../base/variables' as *;
-.index-categoria_contenedor{
+
+.index-categoria_contenedor {
 
     padding: 2rem;
     text-align: center;
     width: 100%;
 
-    h3{
+    h3 {
         font-size: 1rem;
-        @media(min-width: $mediano ){
+
+        @media(min-width: $mediano ) {
             font-size: 2.5rem;
         }
     }
 
-    .index-categoria_contenido{
+    .index-categoria_contenido {
         padding: 2rem 0;
         height: 20rem;
-        display:grid;
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
 
-        @media(min-width: $mediano){
+        @media(min-width: $mediano) {
             grid-template-columns: repeat(5, 1fr);
         }
     }
 }
 
-.index-caracteristicas{
+.index-caracteristicas {
     padding: 2rem;
     background-color: $colorPrincipal;
-    .index-caracteristicas_contenedor{
-        
-        @media (min-width: $mediano){
+
+    .index-caracteristicas_contenedor {
+
+        @media (min-width: $mediano) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             column-gap: 3rem;
         }
 
-        @media (min-width: $grande){
+        @media (min-width: $grande) {
             width: 80%;
             margin: auto;
         }
 
 
-        .index-caracteristicas_contenido{
+        .index-caracteristicas_contenido {
             column-gap: 0;
             margin: auto;
-            @media (min-width: $grande){
+
+            @media (min-width: $grande) {
                 width: 80%;
                 margin: auto;
             }
-    
+
         }
-    
-        img{
+
+        img {
             border-radius: 50%;
-            width:80%;
+            width: 80%;
             margin-top: 1rem;
         }
-    
-        div{
+
+        div {
             text-align: center;
             padding: 0.5rem 0;
             color: $claro;
-    
-            h3{
+
+            h3 {
                 text-transform: uppercase;
                 font-size: 1.5rem;
                 margin: 0.5rem 0;
-                @media(min-width: $mediano){
+
+                @media(min-width: $mediano) {
                     font-size: 1.2rem;
                 }
-                @media(min-width: $grande){
+
+                @media(min-width: $grande) {
                     font-size: 1.2rem;
                 }
             }
-    
-            p{
-                @media(min-width: $mediano){
+
+            p {
+                @media(min-width: $mediano) {
                     font-size: 0.9rem;
                 }
             }
         }
     }
 }
-.index-productosDestacados{
+
+.index-productosDestacados {
     width: 100%;
     padding: 3rem 0;
     text-align: center;
-    h2{
+
+    h2 {
         color: $colorSecundario;
         text-transform: uppercase;
         font-size: 2rem;
 
     }
 
-    .index-productosDes_contenedor{
-        padding-top: 1rem;
-        width: 70%;
+    .index-productosDes_contenedor {
+        width: 60%;
         margin: auto;
 
+
         @media (min-width: $mediano) {
+            width: 90%;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        @media (min-width: $grande) {
+            width: 60%;
+            gap: 5rem;
+        }
+
+        .Producto_contenedor {
+            transition: transform 0.5s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
 
         }
-        .index-producto_contenedor{
+    }
+}
 
-            img{
-                clip-path: polygon(
-                50% 5%,    /* Punto superior */
-                63% 30%,   /* Derecha superior */
-                90% 35%,   /* Derecha media */
-                70% 55%,   /* Derecha inferior */
-                75% 80%,   /* Punta inferior derecha */
-                50% 65%,   /* Centro inferior */
-                25% 80%,   /* Punta inferior izquierda */
-                30% 55%,   /* Izquierda inferior */
-                10% 35%,   /* Izquierda media */
-                37% 30%    /* Izquierda superior */
-                );
-                object-fit: cover; /* Asegura que la imagen se ajuste dentro de la forma */
-                height: 18rem;
-                width: auto;
-                transition:  transform 0.5s ease-in-out;
-                &:hover{
-                    transform: scale(1.2);
+.index-bannerContenedor {
+    background-image: url('../../../public/imagenes/banner.webp');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    @media (min-width: $mediano) {
+        height: 15rem;
+    }
+    @media (min-width: $grande) {
+        height: 25rem;
+    }
+
+    .index-bannerContenedor_sombreado {
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff28;
+        padding: 2rem;
+
+
+        div{
+            margin: auto;
+            font-weight: 500;
+            color: $oscuro;
+            text-align: center;
+            border-radius: 2rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            @media (min-width: $mediano){
+                width: 90%;
+                font-size: 1.2rem;
+            }
+            @media (min-width: $grande){
+                width: 75%;
+                font-size: 1.9rem;
+            }
+            p{
+                margin-bottom: 1rem;
+            }
+            .index-bannerBtn{
+                display: block;
+                margin: auto;
+                text-transform: uppercase;
+                color: $claro;
+                font-weight: bold;
+                background-color: #d10606;
+                padding: 0.8rem;
+                border-radius: 1rem;
+                width: 60%;
+                @media (min-width: $mediano){
+                    width: 40%;
+                    margin-top: 1rem;
                 }
             }
-           
+
         }
+
     }
-}
-.producto-btnCarrito{
-    width: 80%;
-    margin: 1rem auto;
-    padding: 0.5rem;
-    text-align: center;
-    color: $claro;
-    border-radius: 3rem;
-    background-color: $colorSecundario;
-    @media (min-width: $mediano) {
-        width: 50%;
-    }
-}
-.texto{
-    margin-top: -3rem;
 }
