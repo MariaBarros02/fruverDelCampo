@@ -1,36 +1,35 @@
 @use './../base/variables' as *;
-.Producto_contenedor{
+.cardProducto_contenedor{
     padding-bottom: 0.5rem;
     border: 1px solid #acacac;
     border-radius: 1rem;
     margin: 2rem 0 ;
     background-color: $claro;
+
     img{
         object-fit: cover; 
         height: 12rem;
         border-radius: 1rem 1rem 0 0;          
         aspect-ratio: 1 / 1;
     }
+
     div{
         margin: 0.5rem 1rem;
     }
-    
-}
-.Producto-btnAnadirCarrito{
-    display: block;
-    margin: auto;
-    width: 80%;
-    padding: 0.7rem;
-    text-align: center;
-    color: $claro;
-    border-radius: 3rem;
-    background-color: $colorSecundario;
 
-    &:hover{
-        background-color: #ec3420;
+    .cardProducto-btnAnadirCarrito{
+        display: block;
+        margin: auto;
+        width: 80%;
+        padding: 0.7rem;
+        text-align: center;
+        color: $claro;
+        border-radius: 3rem;
+        background-color: $colorSecundario;
+
+        &:hover{
+            background-color: #ec3420;
+        }
     }
-
-
-
-
+    
 }

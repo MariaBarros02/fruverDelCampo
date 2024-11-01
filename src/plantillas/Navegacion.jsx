@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom"
-import { BsStarFill,BsCart2 } from "react-icons/bs";
-import { useEffect , useState} from "react";
+import { BsStarFill, BsCart2, BsTrash3 } from "react-icons/bs";
+import { useEffect, useState } from "react";
 
 const Navegacion = () => {
 
-  //
-  const [claseEstadoNav, setClaseEstadoNav] = useState('navegacion_hero'); 
+  //Estado de la navegacion (estatico o movil)
+  const [claseEstadoNav, setClaseEstadoNav] = useState('navegacion_hero');
 
+  //Estado del div carrito (visible 0 no visible)
+  const [carritoEstado, setCarritoEstado] = useState(false);
+
+  //Establecer el estado de la navegación según el scroll
   const ajustarNavegacion = () => {
     const posicionScroll = window.scrollY;
     setClaseEstadoNav(posicionScroll < 39 ? 'navegacion_hero' : 'navegacion_movil');
@@ -14,24 +18,76 @@ const Navegacion = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', ajustarNavegacion);
-    
-    return () => {
-      window.removeEventListener('scroll', ajustarNavegacion);
-    };
-  }, []); 
+  }, []);
+
+  //Mostrar carrito o esconder
+  const onChangeCarrito = (e) => {
+    e.preventDefault();
+    setCarritoEstado(!carritoEstado);
+  }
 
   return (
     <>
       <div className={`navegacion-contenedor ${claseEstadoNav}`}>
-        <BsStarFill className="navegacion-logo"/>
-        <div>
+        <img src="/imagenes/logo.png" className="navegacion-logo" />
+        <div className="navegacion-contenido">
           <nav>
             <Link to="/">Inicio</Link>
             <Link to="/nosotros">Nosotros</Link>
             <Link to="/productos">Productos</Link>
             <Link to="/garantias">Garantias</Link>
           </nav>
-          <BsCart2 className="navegacion-iconoCarrito"/>
+          <div className="navegacion-carritoContenedor">
+            <a href="#" onClick={onChangeCarrito} className="navegacion-iconoCarrito"><BsCart2 /></a>
+
+            {
+              carritoEstado ? (
+                <div className="navegacion-carritoContenido">
+                  <a href="#" className="btn-cerrarCarrito" onClick={onChangeCarrito}>x</a>
+                  <table >
+                    <tr className="navegacion-carritoEncabezado">
+                      <td className="primera-colCarrito" colSpan="2">Producto</td>
+                      <td>Cantidad</td>
+                      <td>Subtotal</td>
+                    </tr>
+                    <tr className="navegacion-carritoProducto">
+                      <td><img src="/imagenes/productos/Ajo.webp" /></td>
+                      <td>
+                        <p>Ajo x 90g</p>
+                        <p>$1.900</p>
+                      </td>
+                      <td className="input-cantidadCarrito">
+                        <button>-</button>
+                        <input
+                          type="number"
+                        />
+                        <button>+</button>
+                      </td>
+                      <td >$4500</td>
+                      <td><button className="navegacion-carritoEliminar"><BsTrash3 /></button></td>
+                    </tr>
+
+                  </table>
+                 
+
+                  <div className="navegacion-carritoTotal">
+                    <p>Total:</p>
+                    <p>$27.500</p>
+                  </div>
+                  <div className="navegacion-contenedorBotones">
+                    <a href="#" className="navegacion-btn navegacion-btnVaciar"> Vaciar Carrito</a>
+                    <a href="#" className="navegacion-btn navegacion-btnComprar"> Iniciar Compra</a>
+                  </div>
+
+
+
+                </div>
+              ) : null
+
+            }
+
+          </div>
+
         </div>
       </div>
     </>

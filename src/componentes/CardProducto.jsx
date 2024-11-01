@@ -1,24 +1,17 @@
+import { formatearDinero } from "../funciones";
+import { Link} from "react-router-dom";
 
-const CardProducto = ({producto, id, productosDes}) => {
-    const formatearDinero = (numero, moneda = 'USD') => {
-        return new Intl.NumberFormat('es-CO', {
-          style: 'currency',
-          currency: moneda,
-          maximumFractionDigits: 0,
-        }).format(numero);
-      };
-      
+const CardProducto = ({ producto }) => {
+  const {ID, Producto, Tamaño, Unidad, ÍtemsTiendas } = producto;
   return (
-    <>
-        <div className="Producto_contenedor">
-            <img src={`../imagenes/productos/${producto.Producto}.webp`} alt={`imagen_${producto.Producto}`} />
-            <div>
-                <p>{producto.Producto} x {producto.Tamaño}{producto.Unidad}</p>
-                <p>{formatearDinero(producto.ÍtemsTiendas[0].Precio, 'COP')}</p>
-            </div>
-            <a href="#" className="Producto-btnAnadirCarrito">Añadir al carrito</a>
-            </div>
-    </>
+    <div className="cardProducto_contenedor" data-id={ID}>
+      <img src={`../imagenes/productos/${Producto}.webp`} alt={`imagen_${Producto}`} />
+      <div>
+        <p>{Producto} x {Tamaño}{Unidad}</p>
+        <p>{formatearDinero(ÍtemsTiendas[0].Precio, 'COP')}</p>
+      </div>
+      <Link to="" className="cardProducto-btnAnadirCarrito">Añadir al carrito</Link>
+    </div>
   )
 }
 

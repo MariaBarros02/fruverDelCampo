@@ -1,7 +1,7 @@
 import Navegacion from "../plantillas/Navegacion"
 
-
-const heros = [
+//Texto y encabezado de cada hero
+const textoHeros = [
   {
     titulo: 'Sabores Frescos y Autenticos',
     parrafo: 'Frutas, verduras y pulpas 100% puras al mejor precio'
@@ -27,24 +27,25 @@ const heros = [
 const HeroPrincipal = () => {
 
   return (
-    <>
-      <div className='heroPrincipal-contenedor'>
-        <Navegacion />
-        {heros.map((hero, index) => (
-          <div key={index} className='heroPrincipal-contenido'>
-            <img src={`../imagenes/hero_${index+1}.webp`} alt="hero" />
-            <div className="heroPrincipal-sombreado"></div>
-            <div className='heroPrincipal-texto'>
-              <h2>{hero.titulo}</h2>
-              <p>{hero.parrafo}</p>
+    <div className='heroPrincipal-contenedor'>
+      <Navegacion />
+      {
+        textoHeros.map((informacion, index) => {
+          const { titulo, parrafo } = informacion;
+          return (
+            <div key={index} className='heroPrincipal-contenido'>
+              <img src={`../imagenes/hero_${index + 1}.webp`} alt="hero" className="heroPrincipal-imagen"/>
+              <div className="heroPrincipal-sombreado">
+                <div>
+                  <h2>{titulo}</h2>
+                  <p>{parrafo}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        ))
-
-        }
-      </div>
-
-    </>
+          );
+        })
+      }
+    </div >
   )
 }
 
