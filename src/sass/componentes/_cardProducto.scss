@@ -1,23 +1,30 @@
 @use './../base/variables' as *;
-.cardProducto_contenedor{
+
+.cardProducto_contenedor {
     padding-bottom: 0.5rem;
     border: 1px solid #acacac;
     border-radius: 1rem;
-    margin: 2rem 0 ;
+    margin: 2rem 0;
     background-color: $claro;
+    text-align: center;
 
-    img{
-        object-fit: cover; 
-        height: 12rem;
-        border-radius: 1rem 1rem 0 0;          
+    img {
+        object-fit: cover;
+        height: 10rem;
+        border-radius: 1rem 1rem 0 0;
         aspect-ratio: 1 / 1;
     }
 
-    div{
+    div {
         margin: 0.5rem 1rem;
+
+        .cardProducto-marca {
+            font-size: 0.8rem;
+            color: #616161;
+        }
     }
 
-    .cardProducto-btnAnadirCarrito{
+    .cardProducto-btnAnadirCarrito {
         display: block;
         margin: auto;
         width: 80%;
@@ -26,10 +33,86 @@
         color: $claro;
         border-radius: 3rem;
         background-color: $colorSecundario;
+        font-size: 0.8rem;
 
-        &:hover{
+        @media(min-width: $grande) {
+            font-size: 1rem;
+        }
+
+        &:hover {
             background-color: #ec3420;
         }
     }
-    
+
+
+
+}
+
+.cardProducto-modal {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .cardProducto-modal_contenido {
+
+        background-color: $claro;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4rem;
+        width: 80%;
+        margin: auto;
+        height: 30rem;
+        text-align: center;
+
+        @media (min-width: $mediano) {
+            flex-direction: row;
+            width: 45rem;
+
+
+        }
+
+        @media (min-width: $grande) {}
+
+
+        button {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: $colorSecundario;
+            color: $claro;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+
+        img {
+            width: 80%;
+            margin: auto;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            @media (min-width: $mediano) {
+                width: 50%;
+            }
+        }
+
+        div {
+            width: 50%;
+            height: 40%;
+            margin: auto;
+            text-align: left;
+            @media (min-width: $mediano) {
+                width: 100%;
+            }
+        }
+
+
+    }
 }

@@ -94,7 +94,6 @@ const Index = () => {
                 <CardProducto
                   key={index}
                   producto={producto}
-                  id={index}
                 />
               ))
             }
