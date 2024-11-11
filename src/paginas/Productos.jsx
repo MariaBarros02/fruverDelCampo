@@ -67,7 +67,7 @@ const Productos = () => {
     const categoriaSeleccionada = categoriasInfo.find(cat => cat.nombre === nuevaCategoria);
     setTotalPaginas(categoriaSeleccionada.totalPaginas);
 
-    navigate("/productos/palabra")
+    //navigate("/productos/palabra")
 
     window.scrollTo({
       top: 300,
