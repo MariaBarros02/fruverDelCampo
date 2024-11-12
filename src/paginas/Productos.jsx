@@ -1,5 +1,5 @@
-import HeroPrincipal from "../componentes/HeroPrincipal"
 import Cabecera from "../plantillas/Cabecera"
+import HeroPrincipal from "../componentes/HeroPrincipal"
 import Footer from "../plantillas/Footer"
 import CardProducto from "../componentes/CardProducto"
 import { useState, useEffect } from "react"
@@ -34,7 +34,6 @@ const categoriasInfo = [
 ]
 
 const Productos = () => {
-
 
   const [productos, setProductos] = useState([]);
   const [paginaActual, setPaginaActual] = useState(1);
