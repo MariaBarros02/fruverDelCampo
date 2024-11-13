@@ -26,6 +26,25 @@ const Navegacion = () => {
     setCarritoEstado(!carritoEstado);
   }
 
+  //CARRITO
+
+  const [carrito, setCarrito] = useState([]);
+
+  // Recuperar el carrito de localStorage al montar el componente
+  useEffect(() => {
+    const carritoGuardado = localStorage.getItem('carrito');
+    if (carritoGuardado) {
+      setCarrito(JSON.parse(carritoGuardado));
+    }
+  }, []);
+
+  // Función para agregar un producto al carrito
+  const agregarAlCarrito = (producto) => {
+    const nuevoCarrito = [...carrito, producto];
+    setCarrito(nuevoCarrito);
+    localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
+  };
+
   return (
     <>
       <div className={`navegacion-contenedor ${claseEstadoNav}`}>

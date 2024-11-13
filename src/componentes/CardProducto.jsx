@@ -10,7 +10,7 @@ const CardProducto = ({ producto }) => {
         <p>{Producto} x {Tamaño}{Unidad}</p>
         <p>{formatearDinero(ÍtemsTiendas[0].Precio, 'COP')}</p>
       </div>
-      <Link to="" className="cardProducto-btnAnadirCarrito">Añadir al carrito</Link>
+      <Link to="" className="cardProducto-btnAnadirCarrito" >Añadir al carrito</Link>
     </div>
   )
 }

@@ -45,6 +45,7 @@ const Index = () => {
 
   return (
     <>
+
       <Cabecera />
       <HeroPrincipal />
 
