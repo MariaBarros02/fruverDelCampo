@@ -38,9 +38,8 @@
 
     .productos-categoria{
         display: none;
-        border-right: solid 1px #acacac;
         padding-top: 2rem;
-        box-shadow: 5px 0 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 10px 0 10px -10px rgba(0, 0, 0, 0.3);
 
         @media (min-width: $mediano) {
             display:flex;
@@ -111,13 +110,15 @@
             button{
     
                 padding: 0.8rem 1.05rem;
-                border: none;
+                border: 1px solid #646464;
+                background-color: $claro;
+                color: #646464;
                 border-radius: 50%;
-                background-color: $colorSecundario;
                 cursor:pointer;
-                color: $claro;
                 &.activo{
-                    background-color: $colorPrincipal;
+                    border: none;
+                    background-color: $colorSecundario;
+                    color: $claro;
                     
                 }
             }

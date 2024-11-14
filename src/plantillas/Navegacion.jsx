@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom"
-import { BsStarFill, BsCart2, BsTrash3 } from "react-icons/bs";
+import { BsCart2, BsTrash3 } from "react-icons/bs";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Navegacion = () => {
+
+  const {pathname} = useLocation();
+
 
   //Estado de la navegacion (estatico o movil)
   const [claseEstadoNav, setClaseEstadoNav] = useState('navegacion_hero');
@@ -19,6 +23,13 @@ const Navegacion = () => {
   useEffect(() => {
     window.addEventListener('scroll', ajustarNavegacion);
   }, []);
+
+  //Modificar cambio de pestaña
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [pathname]);
+  
+
 
   //Mostrar carrito o esconder
   const onChangeCarrito = (e) => {
@@ -53,7 +64,7 @@ const Navegacion = () => {
           <nav>
             <Link to="/">Inicio</Link>
             <Link to="/nosotros">Nosotros</Link>
-            <Link to="/productos">Productos</Link>
+            <Link to="/productos/Frutas">Productos</Link>
             <Link to="/garantias">Garantias</Link>
           </nav>
           <div className="navegacion-carritoContenedor">

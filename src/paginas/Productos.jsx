@@ -3,7 +3,7 @@ import HeroPrincipal from "../componentes/HeroPrincipal"
 import Footer from "../plantillas/Footer"
 import CardProducto from "../componentes/CardProducto"
 import { useState, useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate , useParams } from "react-router-dom";
 
 const categoriasInfo = [
   {
@@ -19,7 +19,7 @@ const categoriasInfo = [
   {
     nombre: "Pulpas de fruta",
     url: "Categoría=frutas%20y%20verduras&Subcategoría=pulpas%20de%20fruta",
-    totalPaginas: 6
+    totalPaginas: 4
   },
   {
     nombre: "Carnes",
@@ -29,19 +29,26 @@ const categoriasInfo = [
   {
     nombre: "Huevos",
     url: "Categoría=despensa&Subcategoría=huevos",
-    totalPaginas: 3
+    totalPaginas: 1
   }
 ]
 
 const Productos = () => {
-
+  const navigate = useNavigate();
+  const {categoria: categoriaParams} = useParams();
+  const [categoria, setCategoria] = useState(categoriaParams); 
   const [productos, setProductos] = useState([]);
   const [paginaActual, setPaginaActual] = useState(1);
-  const [categoria, setCategoria] = useState(categoriasInfo[0].nombre);
   const [totalPaginas, setTotalPaginas] = useState(categoriasInfo[0].totalPaginas);
-  const navigate = useNavigate();
 
+
+
+
+  
   useEffect(() => {
+    window.scrollTo({
+      top: 300,
+    })
     const obtenerProductos = async () => {
       const categoriaSeleccionada = categoriasInfo.find(cat => cat.nombre === categoria);
 
@@ -55,22 +62,20 @@ const Productos = () => {
       } catch (error) {
         console.error('Error al obtener los productos', error);
       }
+      navigate(`/productos/${categoriaSeleccionada.nombre}`);
 
     };
     obtenerProductos();
   }, [paginaActual, categoria]);
+
 
   const cambiarPagina = (numeroPagina, nuevaCategoria = categoria) => {
     setPaginaActual(numeroPagina);
     setCategoria(nuevaCategoria);
     const categoriaSeleccionada = categoriasInfo.find(cat => cat.nombre === nuevaCategoria);
     setTotalPaginas(categoriaSeleccionada.totalPaginas);
-
-    //navigate("/productos/palabra")
-
-    window.scrollTo({
-      top: 300,
-    })
+    
+   
   }
 
   return (
@@ -92,7 +97,7 @@ const Productos = () => {
         <div className="productos-categoria">
           <p>Categorias</p>
           {categoriasInfo.map((cat) => (
-            <Link to="#" key={cat.nombre}
+            <Link to="#"  key={cat.nombre}
              onClick={() => cambiarPagina(1, cat.nombre)}
              className={`productos-categoria_opcion ${categoria === cat.nombre ? 'activo' : ''}`}
             >
@@ -123,11 +128,13 @@ const Productos = () => {
               </button>
             ))}
           </div>
+          
         </div>
 
 
       </div>
       <Footer />
+      
 
     </>
   )

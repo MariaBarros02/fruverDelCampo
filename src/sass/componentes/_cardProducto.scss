@@ -72,6 +72,7 @@
         @media (min-width: $mediano) {
             flex-direction: row;
             width: 45rem;
+            height: 20rem;
 
 
         }
@@ -81,7 +82,7 @@
             width: 90%;
 
             @media (min-width: $mediano) {
-                margin-top: 0.2rem;
+               
                 width: 96%;
 
             }
@@ -115,7 +116,10 @@
                 object-fit: cover;
                 aspect-ratio: 1 / 1;
                 @media (min-width: $mediano) {
-                    width: 50%;
+                    margin-left: 2rem;
+                    height: 15rem;
+                
+                    width: 80%;
                 }
             }
     

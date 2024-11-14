@@ -10,7 +10,7 @@ import CardProducto from "../componentes/CardProducto";
 //(Información estatica)
 
 //Categorias del fruver
-const categorias = ['Frutas', 'Verduras', 'Pulpas de fruta', 'Carnes', 'Granos'];
+const categorias = ['Frutas', 'Verduras', 'Pulpas de fruta', 'Carnes', 'Huevos'];
 
 //Caracteristicas del fruver 
 const caracteristicas = [

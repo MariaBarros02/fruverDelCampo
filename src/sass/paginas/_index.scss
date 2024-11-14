@@ -8,7 +8,7 @@
     div{
         h3 {
             font-size: 1rem;
-    
+           
             @media(min-width: $mediano ) {
                 font-size: 2.5rem;
             }
@@ -101,6 +101,7 @@
             color: $colorSecundario;
             text-transform: uppercase;
             font-size: 2rem;
+            margin-bottom: 2rem;
             @media (min-width: $mediano) {
                 font-size: 3rem;
             }
@@ -145,7 +146,7 @@
     background-size: cover;
     background-attachment: fixed;
     width: 100%;
-    height: 20rem;
+    height: 30rem;
 
 
     .index-bannerContenedor_sombreado {
@@ -188,7 +189,7 @@
                 font-size: 0.8rem;
                 text-transform: uppercase;
                 color: $claro;
-                background-color: $colorPrincipal;
+                background-color: #fc7528;
                 padding: 0.8rem;
                 border-radius: 0.5rem;
                 display: flex;

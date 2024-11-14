@@ -53,7 +53,7 @@ const CardProducto = ({ producto }) => {
   return (
     <>
       <div className="cardProducto_contenedor" data-id={ID}>
-        <img src={`../imagenes/productos/${Producto}.webp`} alt={`imagen_${Producto}`} />
+        <img src={`../imagenes/productos/${Producto}${Complemento? ` ${Complemento}`: ``}.webp`} alt={`imagen_${Producto}`} />
         <div>
           <p>{Producto} {Complemento}  x {Tamaño}{Unidad}</p>
           <p className="cardProducto-marca">{Marca}</p>
@@ -67,7 +67,7 @@ const CardProducto = ({ producto }) => {
           <div className="cardProducto-modal_contenido">
             <div className="cardProducto-modal_cerrar"><button onClick={cerrarModal}>x</button></div>
             <div className="cardProducto-modal_informacion">
-              <img src={`../imagenes/productos/${Producto}.webp`} alt={`imagen_${Producto}`} />
+              <img src={`../imagenes/productos/${Producto}${Complemento? ` ${Complemento}`: ``}.webp`} alt={`imagen_${Producto}`} />
               <div>
                 <p className="cardProducto-modal_id">ID: {ID}</p>
                 <p className="cardProducto-modal_nombre">{Producto} {Complemento}  x {Tamaño}{Unidad}</p>

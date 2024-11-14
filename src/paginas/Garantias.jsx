@@ -44,7 +44,7 @@ const Garantias = () => {
       <HeroPrincipal />
       <div className="garantias-contenedor">
         <div className="garantias-contenedor_contenidoTexto">
-          <h2>Garantías de Frescura y Calidad</h2>
+          <h2>Garantías de cambio y calidad</h2>
           <p>En Fruver del campo, tu satisfacción es nuestra priorida y estamos
             comprometidos a garantizar tu completa satisfacción en cada compra.
             Si por alguna razón no estás satisfecho con un producto, Cuentas con
