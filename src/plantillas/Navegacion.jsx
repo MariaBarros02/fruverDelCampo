@@ -76,7 +76,8 @@ const Navegacion = () => {
                   </div>
                   <div className="navegacion-contenedorBotones">
                     <a href="#" className="navegacion-btn navegacion-btnVaciar"> Vaciar Carrito</a>
-                    <a href="#" className="navegacion-btn navegacion-btnComprar"> Iniciar Compra</a>
+                    
+                    <Link to="/realizarPedido" className="navegacion-btn navegacion-btnComprar"> Iniciar Compra</Link>
                   </div>
 
 

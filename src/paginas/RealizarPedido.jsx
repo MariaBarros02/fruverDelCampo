@@ -1,8 +1,14 @@
-import React from 'react'
+import Cabecera from "../plantillas/Cabecera"
+import Footer from "../plantillas/Footer"
 
 const RealizarPedido = () => {
   return (
-    <div>RealizarPedido</div>
+    <>
+    <Cabecera/>
+
+    <Footer/>
+    
+    </>
   )
 }
 
