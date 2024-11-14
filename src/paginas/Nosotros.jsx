@@ -139,65 +139,68 @@ const Nosotros = () => {
       </section>
 
       <div className="formulario">
-        
-        <form onSubmit={enviarFormulario} className="contact-form">
-          <p>Si deseas contactarnos enviarnos tu mensaje llenando el formulario</p>
-          <p className="formulario-leyenda">Te responderemos en cuanto veamos tu mensaje</p>
-          <label>Nombre:</label>
-          <input
-            type="text"
-            name="nombre"
-            value={formularioInfo.nombre}
-            onChange={actualizarInformacion}
-          />
-          {errores.nombre && <span className="error">{errores.nombre}</span>}
+        <div className="formulario-contenido">
+          <form onSubmit={enviarFormulario} className="contact-form">
+            <p>Si deseas contactarnos enviarnos tu mensaje llenando el formulario</p>
+            <p className="formulario-leyenda">Te responderemos en cuanto veamos tu mensaje</p>
+            <label>Nombre:</label>
+            <input
+              type="text"
+              name="nombre"
+              value={formularioInfo.nombre}
+              onChange={actualizarInformacion}
+            />
+            {errores.nombre && <span className="error">{errores.nombre}</span>}
 
-          <label>Correo:</label>
-          <input
-            type="email"
-            name="correo"
-            value={formularioInfo.correo}
-            onChange={actualizarInformacion}
-          />
-          {errores.correo && <span className="error">{errores.correo}</span>}
+            <label>Correo:</label>
+            <input
+              type="email"
+              name="correo"
+              value={formularioInfo.correo}
+              onChange={actualizarInformacion}
+            />
+            {errores.correo && <span className="error">{errores.correo}</span>}
 
-          <label>Dirección:</label>
-          <input
-            type="text"
-            name="direccion"
-            value={formularioInfo.direccion}
-            onChange={actualizarInformacion}
-          />
-          {errores.direccion && <span className="error">{errores.direccion}</span>}
+            <label>Dirección:</label>
+            <input
+              type="text"
+              name="direccion"
+              value={formularioInfo.direccion}
+              onChange={actualizarInformacion}
+            />
+            {errores.direccion && <span className="error">{errores.direccion}</span>}
 
-          <label>Ciudad:</label>
-          <input
-            type="text"
-            name="ciudad"
-            value={formularioInfo.ciudad}
-            onChange={actualizarInformacion}
-          />
-          {errores.ciudad && <span className="error">{errores.ciudad}</span>}
+            <label>Ciudad:</label>
+            <input
+              type="text"
+              name="ciudad"
+              value={formularioInfo.ciudad}
+              onChange={actualizarInformacion}
+            />
+            {errores.ciudad && <span className="error">{errores.ciudad}</span>}
 
-          <label>Teléfono:</label>
-          <input
-            type="text"
-            name="telefono"
-            value={formularioInfo.telefono}
-            onChange={actualizarInformacion}
-          />
-          {errores.telefono && <span className="error">{errores.telefono}</span>}
+            <label>Teléfono:</label>
+            <input
+              type="text"
+              name="telefono"
+              value={formularioInfo.telefono}
+              onChange={actualizarInformacion}
+            />
+            {errores.telefono && <span className="error">{errores.telefono}</span>}
 
-          <label>Mensaje:</label>
-          <textarea
-            name="mensaje"
-            value={formularioInfo.mensaje}
-            onChange={actualizarInformacion}
-          />
-          {errores.mensaje && <span className="error">{errores.mensaje}</span>}
+            <label>Mensaje:</label>
+            <textarea
+              name="mensaje"
+              value={formularioInfo.mensaje}
+              onChange={actualizarInformacion}
+            />
+            {errores.mensaje && <span className="error">{errores.mensaje}</span>}
 
-          <button type="submit">Enviar</button>
-        </form>
+            <button type="submit">Enviar</button>
+          </form>
+
+        </div>
+
 
       </div>
       <Footer />
