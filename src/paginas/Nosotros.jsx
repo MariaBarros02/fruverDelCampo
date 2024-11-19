@@ -131,9 +131,9 @@ const Nosotros = () => {
           </div>
           {/*Cambiar los circulos por imagenes */}
           <div className="nosotros-proveedoresContenedor">
-            <div className="circle">Empresa 1</div>
-            <div className="circle">Empresa 2</div>
-            <div className="circle">Empresa 3</div>
+              <img className="circle" src="/imagenes/proveedor1.webp" alt=""/>
+              <img className="circle" src="/imagenes/proveedor2.webp" alt=""/>
+              <img className="circle" src="/imagenes/proveedor3.webp" alt=""/>
           </div>
         </div>
       </section>
