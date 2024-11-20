@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom"
 import { BsCart2, BsTrash3 } from "react-icons/bs";
-import { useEffect, useState } from "react";
+import { useEffect, useState , useContext} from "react";
 import { useLocation } from "react-router-dom";
 import { formatearDinero } from "../funciones";
+import { CarritoContext } from "../context/CarritoContext";
 
 const Navegacion = () => {
 
   const { pathname } = useLocation();
-  const [carrito, setCarrito] = useState([])
+  const { carrito, vaciarCarrito, setCarrito } = useContext(CarritoContext);
+
+
+  const calcularTotal = () => {
+    return carrito.reduce((acumulador, producto) => acumulador + producto.Subtotal, 0);
+  };
 
   //Estado de la navegacion (estatico o movil)
   const [claseEstadoNav, setClaseEstadoNav] = useState('navegacion_hero');
@@ -41,48 +47,38 @@ const Navegacion = () => {
   }
 
 
-  // Cargar carrito desde localStorage al montar el componente
-  useEffect(() => {
-    const carritoLocal = JSON.parse(localStorage.getItem("carrito")) || [];
-    setCarrito(carritoLocal);
-  }, [carrito]);
-
-  // Vaciar el carrito
-  const vaciarCarrito = (e) => {
-    e.preventDefault();
-    setCarrito([]);
-    localStorage.setItem("carrito", JSON.stringify([]));
-  };
+  
 
 
-  const manejarCambioCantidad = (e, index) => {
-    const nuevoCarrito = [...carrito];
-    let cantidad = parseInt(e.target.value, 10);
-
-    if (isNaN(cantidad) || cantidad < 1) {
-      // Si la cantidad es inválida o menor a 1, eliminar el producto
-      nuevoCarrito.splice(index, 1); // Eliminar el producto del carrito
-    } else {
-      // Si la cantidad es válida, actualizar el producto
-      nuevoCarrito[index].Cantidad = cantidad;
-      nuevoCarrito[index].Subtotal = cantidad * nuevoCarrito[index].Precio; // Recalcular el subtotal
+  const manejarCambioCantidad = (index, nuevaCantidad) => {
+    if (nuevaCantidad < 1) {
+      // Si la cantidad es menor a 1, elimina el producto del carrito
+      eliminarProducto(index);
+      return;
     }
-
-    // Actualizar el estado y localStorage con el carrito modificado
+  
+    // Actualizar el carrito con la nueva cantidad y subtotal
+    const nuevoCarrito = carrito.map((producto, i) =>
+      i === index
+        ? {
+            ...producto,
+            Cantidad: nuevaCantidad,
+            Subtotal: nuevaCantidad * producto.Precio,
+          }
+        : producto
+    );
+  
     setCarrito(nuevoCarrito);
-    localStorage.setItem("carrito", JSON.stringify(nuevoCarrito));
   };
+  
 
   // Función para eliminar un producto
   const eliminarProducto = (index) => {
-    const nuevoCarrito = carrito.filter((_, i) => i !== index); // Eliminar el producto por índice
+    const nuevoCarrito = carrito.filter((_, i) => i !== index);
     setCarrito(nuevoCarrito);
-    localStorage.setItem("carrito", JSON.stringify(nuevoCarrito)); // Actualizar localStorage
   };
 
-  const calcularTotal = () => {
-    return carrito.reduce((acumulador, producto) => acumulador + producto.Subtotal, 0);
-  };
+
 
 
 
@@ -122,13 +118,13 @@ const Navegacion = () => {
                                 <p>{formatearDinero(Precio, 'COP')}</p>
                               </td>
                               <td className="input-cantidadCarrito">
-                                <button onClick={() => manejarCambioCantidad({ target: { value: Math.max(Cantidad - 1, 0) } }, index)}>-</button>
+                                <button onClick={() => manejarCambioCantidad(index, producto.Cantidad-1)}>-</button>
                                 <input
                                   type="number"
-                                  value={Cantidad}
-                                  onChange={(e) => manejarCambioCantidad(e, index)} // Manejamos el cambio de cantidad
+                                  value={producto.Cantidad}
+                                  onChange={(e) => manejarCambioCantidad(index, parseInt(e.target.value, 10) || 0)} // Manejamos el cambio de cantidad
                                 />
-                                <button onClick={() => manejarCambioCantidad({ target: { value: Cantidad + 1 } }, index)}>+</button>
+                                <button onClick={() => manejarCambioCantidad(index, producto.Cantidad+1)}>+</button>
                               </td>
                               <td className="subtotal">{formatearDinero((Precio * Cantidad), 'COP')}</td>
                               <td><button onClick={() => eliminarProducto(index)} className="navegacion-carritoEliminar"><BsTrash3 /></button></td>

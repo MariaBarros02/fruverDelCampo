@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { formatearDinero } from "../funciones";
 import { Link } from "react-router-dom";
+import { CarritoContext } from "../context/CarritoContext";
 
-const CardProducto = ({ producto }) => {
-  const { ID, Producto, Complemento, Marca, Tamaño, Unidad, ÍtemsTiendas } = producto;
+const CardProducto = ({ producto, index}) => {
+  const { ID, Producto, Complemento, Marca, Tamaño, Unidad, ÍtemsTiendas} = producto;
   const [mostrarModal, setMostrarModal] = useState(false);
   const [valor, setValor] = useState(1);
   const [alerta, setAlerta] = useState(null);
-  const [carrito, setCarrito] = useState([])
+
+  const { agregarProducto, carrito } = useContext(CarritoContext);
+  
+
 
   // modal control
   useEffect(() => {
@@ -22,53 +26,29 @@ const CardProducto = ({ producto }) => {
     };
   }, [mostrarModal]);
 
-  useEffect(() => {
-    const carritoLocal = JSON.parse(localStorage.getItem('carrito')) || [];
-    setCarrito(carritoLocal);
 
-    // Revisamos si el producto ya existe en el carrito
-    const productoExistente = carritoLocal.find(item => item.ID === ID);
-    if (productoExistente) {
-      setValor(productoExistente.Cantidad); // Actualizamos el valor con la cantidad del carrito
-    }
-  }, [ID]);
-
-
-  // Función para agregar al carrito
   const agregarAlCarrito = () => {
-    const carritoActual = JSON.parse(localStorage.getItem('carrito')) || [];
-    const productoExistente = carritoActual.find((item) => item.ID === ID);
+    const nuevoProducto = {
+      ID,
+      Producto,
+      Complemento,
+      Marca,
+      Tamaño,
+      Unidad,
+      Precio: ÍtemsTiendas[0].Precio,
+      Cantidad: valor,
+      Subtotal: valor * ÍtemsTiendas[0].Precio,
+    };
 
-    if (productoExistente) {
-
-      productoExistente.Cantidad += valor;
-      productoExistente.Subtotal += valor * ÍtemsTiendas[0].Precio;
-    } else {
-
-      carritoActual.push({
-        ID,
-        Producto,
-        Complemento,
-        Marca,
-        Tamaño,
-        Unidad,
-        Precio: ÍtemsTiendas[0].Precio,
-        Cantidad: valor,
-        Subtotal: valor * ÍtemsTiendas[0].Precio
-      });
-    }
-
-    localStorage.setItem('carrito', JSON.stringify(carritoActual));
+    agregarProducto(nuevoProducto); // Llama a la función del contexto
     cerrarModal();
     setValor(1);
-    setAlerta({ mensaje: 'El producto ha sido agregado al carrito correctamente', tipo: 'success' });
+    setAlerta({ mensaje: "El producto ha sido agregado al carrito correctamente", tipo: "success" });
 
     // Ocultar la alerta después de 3 segundos
     setTimeout(() => {
-      setAlerta(null)
+      setAlerta(null);
     }, 3000);
-    
-   
   };
 
 
@@ -81,9 +61,10 @@ const CardProducto = ({ producto }) => {
 
   const incrementar = () => setValor(prev => prev + 1);
   const decrementar = () => { if (valor > 0) setValor(prev => prev - 1); };
+  
   const manejarCambio = (e) => {
     const nuevoValor = parseInt(e.target.value, 10);
-    if (!isNaN(nuevoValor)) setValor(nuevoValor);
+    if (!isNaN(nuevoValor) && nuevoValor > 0) setValor(valor + nuevoValor);
   };
 
   return (
