@@ -107,7 +107,7 @@ const Index = () => {
         <div className="index-bannerContenedor_sombreado">
           <div>
             <p>Te invitamos a explorar todos los productos de nuestro fruver:<span> frutas frescas, verduras recién cosechadas, pulpas naturales y mucho más, listos para llegar a tu mesa</span></p>
-            <Link className="index-bannerBtn" to="/productos">Ir a comprar <BsArrowRight className="index-icono" /> </Link>
+            <Link className="index-bannerBtn" to="/productos/Frutas">Ir a comprar <BsArrowRight className="index-icono" /> </Link>
           </div>
         </div>
       </div>

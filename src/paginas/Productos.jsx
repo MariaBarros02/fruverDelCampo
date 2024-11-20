@@ -24,7 +24,7 @@ const categoriasInfo = [
   {
     nombre: "Carnes",
     url: "Categoría=carnes%20y%20pescados&Subcategoría=res",
-    totalPaginas: 6
+    totalPaginas: 5
   },
   {
     nombre: "Huevos",
@@ -47,7 +47,8 @@ const Productos = () => {
   
   useEffect(() => {
     window.scrollTo({
-      top: 300,
+      top: 0,
+      left: 0
     })
     const obtenerProductos = async () => {
       const categoriaSeleccionada = categoriasInfo.find(cat => cat.nombre === categoria);

@@ -1,13 +1,22 @@
 @use './../base/variables' as *;
 
-.realizarPedido-contenedor {
+.realizarPedido{
+    background-image: url("/imagenes/banner2.webp");
+}
 
+.realizarPedido-contenedor1{
+    background-color: #fffffff3;
+    padding-bottom:2rem ;
+}
+
+.realizarPedido-contenedor {
     @media (min-width: $mediano) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
 
     }
-    .realizarPedido-contenedor_titulo{
+
+    .realizarPedido-contenedor_titulo {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -17,29 +26,29 @@
 
         @media (min-width: $grande) {
             justify-content: left;
-            
+
         }
 
-        .realizarPedido-contenedor_titulo_iconoVolver{
+        .realizarPedido-contenedor_titulo_iconoVolver {
             margin-right: 1rem;
             color: $oscuro;
             font-size: 1.8rem;
 
-            &:hover{
+            &:hover {
                 color: $colorPrincipal;
             }
 
         }
 
-        h2{
+        h2 {
             font-size: 1.8rem;
-            
+
         }
     }
+
     .realizarPedido-contenedor_formulario {
         width: 90%;
         margin: auto;
-        margin-bottom: 2rem;
 
         div {
             display: flex;
@@ -50,7 +59,7 @@
                 margin-bottom: 0.2rem;
                 font-size: 0.8rem;
                 font-weight: bold;
-                color: #616161;
+                color: #353535;
 
             }
 
@@ -60,7 +69,7 @@
                 padding: 0.2rem;
                 border-radius: 0.5rem;
 
-                &::placeholder{
+                &::placeholder {
                     font-family: $fuentePrincipal;
                 }
             }
@@ -71,12 +80,12 @@
                 padding: 0.2rem;
                 border-radius: 0.5rem;
 
-                &::placeholder{
+                &::placeholder {
                     font-family: $fuentePrincipal;
                 }
             }
 
-            .error{
+            .error {
                 padding: 0.2rem;
                 background-color: $colorSecundario;
                 font-family: $fuentePrincipal;
@@ -88,13 +97,13 @@
 
         }
 
-        button{
+        button {
             display: block;
             width: 60%;
-            height: 3rem;
             margin: auto;
+           
             border: none;
-            padding: 0.5rem 0;
+            padding: 1rem;
             border-radius: 1.5rem;
             background-color: $colorSecundario;
             color: $claro;
@@ -106,9 +115,89 @@
 
             @media (min-width: $grande) {
                 width: 40%;
-                
+
+            }
+
+            &:hover{
+                background-color: #f72424;
             }
         }
     }
+
+   
+    .realizarPedido-carritoContenedor{
+        margin: 1rem;
+        border-radius: 1rem;
+        background-color: $claro;
+        border: 1px solid #cacaca;
+        @media (min-width: $mediano) {
+            height: 40rem;
+        }
+        @media (min-width: $grande) {
+            margin: 2rem;
+            height: 41rem;
+        }
+        
+    }
+
+    .realizarPedido-carritoContenido {
+        background-color: $claro;
+        border-radius: 1rem;
+        padding: 1rem;
+        font-size: 0.6rem;
+
+
+        @media(min-width: $mediano) {
+            height: 30rem;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                width: 16px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 8px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #929292;
+                border-radius: 8px;
+                border: 2px solid #f1f1f1;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: #727272;
+            }
+        }
+
+        @media(min-width: $grande){
+            font-size: 1rem;
+        }
+    }
+    .realizarPedido-carritoTitulo {
+        text-align: center;
+        margin: 2rem;
+
+
+    }
+
+    .realizarPedido-cantidad {
+        text-align: center;
+    }
+
+    .realizarPedido-carritoTotal{
+        margin: 1rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        @media (min-width: $grande) {
+            font-size: 1.5rem;
+        }
+        .totalLabel{
+            color: #f56410;
+        }
+    }
+
 
 }

@@ -183,6 +183,15 @@
             }
         }
     }
+    .navegacion-carritoVacio{
+        text-align: center;
+        font-weight: 500;
+        color: #8f8e8e;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        
+    }
+    
 
 }
 
@@ -192,7 +201,13 @@ table{
     width: 100%;
     .navegacion-carritoEncabezado {
         font-weight: bold;
-        
+        .cantidad{
+            text-align: center;
+        }
+        .subtotal{
+            width: 6rem;
+            text-align: center;
+        }
     }
 
     .navegacion-carritoProducto{
@@ -204,9 +219,19 @@ table{
                 width: 6rem;
             }
         }
+        .subtotal{
+            width: 6rem;
+            text-align: center;
+        }
         .input-cantidadCarrito{
+            margin: auto;
+            width: 5rem;
+            
             input{
-                width: 1.5rem;
+                border-radius: 0.2rem;
+                border: 1px solid #8f8e8e;
+                padding: 0.5rem;
+                width: 2rem;
                 -moz-appearance: textfield;
                 &::-webkit-inner-spin-button, &::-webkit-outer-spin-button { 
                     -webkit-appearance: none;
@@ -225,8 +250,12 @@ table{
             border: none;
             background-color: $claro;
             font-size: 1rem;
+            cursor: pointer;
         }
+
+
     }
+   
 
 
 }
